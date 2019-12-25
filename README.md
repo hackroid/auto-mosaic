@@ -56,6 +56,7 @@
   * opencv-python
   * numpy
   * matplotlib
+  * pillow
   
 * Modify your own data path (like `./data/VOC2007test/...`) in function `main`
 

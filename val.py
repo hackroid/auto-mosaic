@@ -50,11 +50,19 @@ def main():
         'sofa': [],
         'tvmonitor': []
     }
+    imagesetfile = './data/test/ImageSets/Layout/test.txt'
+    imagesetpath = 'data/test/JPEGImages/{}.jpg'
+    with open(imagesetfile, 'r') as f:
+        lines = f.readlines()
+    imagenames = [x.strip() for x in lines]
+    print(len(imagenames))
 
     test_files = sorted(os.listdir(dataset_path))
-    for test_f in test_files[0:10]:
-        if test_f.endswith('.jpg'):
-            img_path = dataset_path + test_f
+    for test_f in imagenames:
+        print(test_f)
+        tmp = imagesetpath.format(test_f)
+        if tmp.endswith('.jpg'):
+            img_path = tmp
             detection_boxes, detection_classes, detection_scores = img_dan(
                 api_url, iam_auth_url, img_path)
             for i, item in enumerate(detection_classes):

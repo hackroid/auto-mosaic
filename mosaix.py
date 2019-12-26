@@ -69,18 +69,18 @@ def video_proc(in_path, out_path, api_url, iam_auth_token_url):
         video_writer.write(new_frame)
         print('>> wrote')
         success, frame = video.read()
-        for i in range(5):
-            if success:
-                success, frame = video.read()
-                index += 1
+        # for i in range(5):
+        #     if success:
+        #         success, frame = video.read()
+        #         index += 1
         index += 1
     video.release()
 
 
 def main(api_url, iam_auth_token_url):
     img_path = './data/temp/tmp.jpg'
-    in_path = './data/video/shadiao.mp4'
-    out_path = './data/output/shadiao-mox.mp4'
+    in_path = './data/video/woman.mp4'
+    out_path = './data/output/woman-mox.mp4'
     video_proc(in_path, out_path, api_url, iam_auth_token_url)
     img = single_img(api_url, iam_auth_token_url, img_path)
     plt.imshow(img)

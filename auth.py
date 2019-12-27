@@ -5,6 +5,15 @@ import os
 
 
 def req_token(ct, iam_auth_url):
+    """func for senfing request to huawei cloud
+
+    Arguments:
+        ct {[datetime]} -- current datetime
+        iam_auth_token_url {[str]} -- iam url
+
+    Returns:
+        token -- token string
+    """
     print('===== func req_token =====')
     token = None
     current_time = format(ct).replace(' ', '').replace(
@@ -38,6 +47,14 @@ def req_token(ct, iam_auth_url):
 
 
 def get_token(iam_auth_token_url):
+    """get latest token from cache or new req
+
+    Arguments:
+        iam_auth_token_url {[str]} -- iam url
+
+    Returns:
+        token -- token string
+    """
     print('===== func get_token =====')
     dayday = dt.timedelta(days=1) - dt.timedelta(hours=1)
     current_time = dt.datetime.now()

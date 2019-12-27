@@ -6,6 +6,16 @@ ms = 0
 
 
 def img_dan(api_url, iam_auth_token_url, img_path):
+    """This func returns prediction of a single img
+
+    Arguments:
+        api_url {[str]} -- api url
+        iam_auth_token_url {[str]} -- iam url
+        img_path {[str]} -- path to img
+
+    Returns:
+        detection_boxes, detection_classes, detection_scores
+    """
     token = get_token(iam_auth_token_url)
     print('===== func single_img =====')
     # img_path = './data/VOC2007test/JPEGImages/000069.jpg'
@@ -22,6 +32,9 @@ def img_dan(api_url, iam_auth_token_url, img_path):
 
 
 def main():
+    """ Calculating map of this test
+    """
+
     iam_auth_url = 'https://iam.cn-north-4.myhuaweicloud.com/v3/auth/tokens'
     api_url_path = './data/iam/api_url'
     dataset_path = './data/test/JPEGImages/'

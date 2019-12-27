@@ -22,6 +22,16 @@ motion_blur_kernel = motion_blur_kernel / degree
 
 
 def single_img(api_url, iam_auth_token_url, img_path):
+    """[summary]
+
+    Arguments:
+        api_url {[str]} -- api url
+        iam_auth_token_url {[str]} -- iam url
+        img_path {[str]} -- path to img
+
+    Returns:
+        img -- [ndarray for img after mosaic]
+    """
     token = get_token(iam_auth_token_url)
     print('===== func single_img =====')
     # img_path = './data/VOC2007test/JPEGImages/000069.jpg'
@@ -52,6 +62,14 @@ def single_img(api_url, iam_auth_token_url, img_path):
 
 
 def video_proc(in_path, out_path, api_url, iam_auth_token_url):
+    """[summary]
+
+    Arguments:
+        in_path {[str]} -- input video path
+        out_path {[str]} -- output video path
+        api_url {[str]} -- api url
+        iam_auth_token_url {[str]} -- iam url
+    """
     temp_path = './data/temp/tmp.jpg'
     video = cv2.VideoCapture(in_path)
     fps = video.get(cv2.CAP_PROP_FPS)

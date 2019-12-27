@@ -2,6 +2,8 @@ from auth import *
 import os
 import datetime as dt
 
+ms = 0
+
 
 def img_dan(api_url, iam_auth_token_url, img_path):
     token = get_token(iam_auth_token_url)
@@ -23,9 +25,18 @@ def main():
     iam_auth_url = 'https://iam.cn-north-4.myhuaweicloud.com/v3/auth/tokens'
     api_url_path = './data/iam/api_url'
     dataset_path = './data/test/JPEGImages/'
-    f = open(api_url_path, "r")
-    api_url = f.read()
-    f.close()
+    # f = open(api_url_path, "r")
+    # api_url = f.read()
+    # f.close()
+    iam_path = './data/iam/api_url'
+    with open(api_url_path, 'r') as f:
+        lines = f.readlines()
+    api_links = [x.strip().split(' ') for x in lines]
+    # api_links = api_links
+    api_links[0] = api_links[0][0]
+    api_links[1] = api_links[1][0]
+    print(api_links)
+
     # img_path = './data/test/JPEGImages/000116.jpg'
     result = {
         'person': [],
@@ -64,7 +75,7 @@ def main():
         if tmp.endswith('.jpg'):
             img_path = tmp
             detection_boxes, detection_classes, detection_scores = img_dan(
-                api_url, iam_auth_url, img_path)
+                api_links[ms], iam_auth_url, img_path)
             for i, item in enumerate(detection_classes):
                 entry = [test_f.split(
                     '.')[0], detection_scores[i]] + detection_boxes[i]

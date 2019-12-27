@@ -183,9 +183,9 @@ def voc_eval(detpath,
         if BBGT.size > 0:
             # compute overlaps
             # intersection
-            print(BBGT[:, 0],BBGT[:, 1],BBGT[:, 2],BBGT[:, 3])
-            print(bb[0], bb[1], bb[2], bb[3])
-            break
+            # print(BBGT[:, 0],BBGT[:, 1],BBGT[:, 2],BBGT[:, 3])
+            # print(bb[0], bb[1], bb[2], bb[3])
+            # break
             ixmin = np.maximum(BBGT[:, 0], bb[1])
             iymin = np.maximum(BBGT[:, 1], bb[0])
             ixmax = np.minimum(BBGT[:, 2], bb[3])
@@ -228,7 +228,7 @@ def voc_eval(detpath,
     return rec, prec, ap
 
 def main():
-    detpath = './data/output/val/20191227044231251523/comp3_det_test_{}.txt'
+    detpath = './data/output/val/20191227065444758808/comp3_det_test_{}.txt'
     annopath = './data/test/Annotations/{}.xml'
     imagesetfile = './data/test/ImageSets/Layout/test.txt'
     # classname = 'horse'

@@ -43,13 +43,26 @@
   ├── README.md
   ├── auth.py
   ├── data
-  │   ├── VOC2007test(this is image data folder)
-  │   └── iam
-  │       ├── 20191225041659231430.aidate
-  │       ├── api_url(only content is an url)
-  │       └── auth_data
+  │   ├── cache
+  │   ├── iam
+  │   │   ├── 20191226233557982276.aidate
+  │   │   ├── api_url((each line of content is an url))
+  │   │   └── auth_data
+  │   ├── output
+  │   │   ├── xxx-out.mp4
+  │   │   └── val
+  │   ├── temp
+  │   ├── test(this is test set folder)
+  │   │   ├── Annotations
+  │   │   ├── ImageSets
+  │   │   └── JPEGImages
+  │   └── video
+  │       └── xxx-in.mp4
   ├── mosaix.py
-  └── utils.py
+  ├── test.py
+  ├── utils.py
+  ├── val.py
+  └── voc_eval.py
   ```
 
 * Python 3.7
